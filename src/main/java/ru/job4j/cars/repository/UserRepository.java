@@ -135,7 +135,7 @@ public class UserRepository {
         try {
             session.beginTransaction();
             result = session.createQuery("FROM User u WHERE u.login LIKE :key",
-                    User.class).setParameter("key", key).list();
+                    User.class).setParameter("key", "%" + key + "%").list();
             session.getTransaction().commit();
         } catch (Exception e) {
             session.getTransaction().rollback();
