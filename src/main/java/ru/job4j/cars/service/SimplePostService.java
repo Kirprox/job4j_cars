@@ -20,12 +20,12 @@ public class SimplePostService implements PostService {
 
     @Override
     public void updatePost(Post post) {
-postRepository.update(post);
+        postRepository.update(post);
     }
 
     @Override
     public void deletePostById(int id) {
-postRepository.deleteById(id);
+        postRepository.deleteById(id);
     }
 
     @Override
