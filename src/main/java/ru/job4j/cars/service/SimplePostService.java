@@ -37,4 +37,19 @@ public class SimplePostService implements PostService {
     public List<Post> findAdd() {
         return postRepository.findAll();
     }
+
+    @Override
+    public List<Post> findByLastDay() {
+        return postRepository.findByLastDay();
+    }
+
+    @Override
+    public List<Post> findWithPhoto() {
+        return postRepository.findWithPhoto();
+    }
+
+    @Override
+    public List<Post> findContainsCar(String brand) {
+        return postRepository.findContainsCarBrand(brand);
+    }
 }

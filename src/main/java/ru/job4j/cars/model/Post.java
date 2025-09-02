@@ -29,4 +29,7 @@ public class Post {
     @ManyToOne()
     @JoinColumn(name = "car_id")
     private Car car;
+    @OneToOne
+    @JoinColumn(name = "file_id")
+    private File file;
 }

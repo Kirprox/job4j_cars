@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 import ru.job4j.cars.model.Post;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -44,6 +45,29 @@ public class HbmPostRepository implements PostRepository {
     public List<Post> findAll() {
         return crudRepository.query(
                 "FROM Post", Post.class
+        );
+    }
+
+    @Override
+    public List<Post> findByLastDay() {
+        return crudRepository.query(
+                "FROM Post WHERE created >= :fCreated", Post.class,
+                Map.of("fCreated", LocalDateTime.now().minusDays(1))
+        );
+    }
+
+    @Override
+    public List<Post> findWithPhoto() {
+        return crudRepository.query(
+                "SELECT p FROM Post p WHERE p.file.path != ''", Post.class
+        );
+    }
+
+    @Override
+    public List<Post> findContainsCarBrand(String brand) {
+        return crudRepository.query(
+                "SELECT p FROM Post p WHERE p.car.brand = :fBrand", Post.class,
+                Map.of("fBrand", brand)
         );
     }
 }

@@ -15,4 +15,11 @@ public interface PostRepository {
     Optional<Post> findById(int id);
 
     List<Post> findAll();
+
+    List<Post> findByLastDay();
+
+    List<Post> findWithPhoto();
+
+    List<Post> findContainsCarBrand(String brand);
+
 }

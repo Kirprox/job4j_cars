@@ -15,4 +15,10 @@ public interface PostService {
     Optional<Post> findById(int id);
 
     List<Post> findAdd();
+
+    List<Post> findByLastDay();
+
+    List<Post> findWithPhoto();
+
+    List<Post> findContainsCar(String brand);
 }
