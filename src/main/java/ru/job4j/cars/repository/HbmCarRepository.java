@@ -26,8 +26,8 @@ public class HbmCarRepository implements CarRepository {
 
     @Override
     public void deleteById(int id) {
-        crudRepository.query(
-                "DELEYE FROM Car WHERE id = :fId", Car.class,
+        crudRepository.run(
+                "DELETE FROM Car WHERE id = :fId",
                 Map.of("fId", id)
         );
     }
@@ -35,7 +35,7 @@ public class HbmCarRepository implements CarRepository {
     @Override
     public Optional<Car> findById(int id) {
         return crudRepository.optional(
-                "FROM Car WHERE id = :fId", Car.class,
+                "FROM Car c LEFT JOIN FETCH c.owners WHERE c.id = :fId", Car.class,
                 Map.of("fId", id)
         );
     }

@@ -41,8 +41,9 @@ public class HbmOwnerRepository implements OwnerRepository {
 
     @Override
     public void deleteById(int id) {
-        crudRepository.query(
-                "DELETE FROM Owner WHERE id = :fId", Owner.class
+        crudRepository.run(
+                "DELETE FROM Owner WHERE id = :fId",
+                Map.of("fId", id)
         );
     }
 }

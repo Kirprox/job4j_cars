@@ -26,8 +26,8 @@ public class HbmHistoryRepository implements HistoryRepository {
 
     @Override
     public void deleteById(int id) {
-        crudRepository.query(
-                "FROM History WHERE id = :fId", History.class,
+        crudRepository.run(
+                "FROM History WHERE id = :fId",
                 Map.of("fId", id)
         );
     }

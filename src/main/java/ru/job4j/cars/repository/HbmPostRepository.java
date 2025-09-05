@@ -27,8 +27,8 @@ public class HbmPostRepository implements PostRepository {
 
     @Override
     public void deleteById(int id) {
-        crudRepository.query(
-                "FROM Post WHERE id = :fId", Post.class,
+        crudRepository.run(
+                "FROM Post WHERE id = :fId",
                 Map.of("fId", id)
         );
     }

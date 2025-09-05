@@ -16,11 +16,11 @@ public class Car {
     @OneToOne
     @JoinColumn(name = "engine_id")
     private Engine engine;
-    private String brand;
+    private String name;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "history_owner", joinColumns = {
-            @JoinColumn(name = "car_id", nullable = false, updatable = false)},
+            @JoinColumn(name = "car_id")},
             inverseJoinColumns = {
-            @JoinColumn(name = "owner_id", nullable = false, updatable = false)})
+            @JoinColumn(name = "owner_id")})
     private Set<Owner> owners = new HashSet<>();
 }
