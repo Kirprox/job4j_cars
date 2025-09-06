@@ -29,6 +29,11 @@ public class SimpleUserService implements UserRepository {
     }
 
     @Override
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    @Override
     public List<User> findAllOrderById() {
         return userRepository.findAllOrderById();
     }

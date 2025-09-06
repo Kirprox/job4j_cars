@@ -50,6 +50,13 @@ public class HbmUserRepository implements UserRepository {
         );
     }
 
+    @Override
+    public List<User> findAll() {
+        return crudRepository.query(
+                "FROM User", User.class
+        );
+    }
+
     /**
      * Список пользователь отсортированных по id.
      *

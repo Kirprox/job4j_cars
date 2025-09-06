@@ -28,7 +28,7 @@ public class HbmPostRepository implements PostRepository {
     @Override
     public void deleteById(int id) {
         crudRepository.run(
-                "FROM Post WHERE id = :fId",
+                "DELETE FROM Post WHERE id = :fId",
                 Map.of("fId", id)
         );
     }
@@ -66,8 +66,8 @@ public class HbmPostRepository implements PostRepository {
     @Override
     public List<Post> findContainsCarBrand(String brand) {
         return crudRepository.query(
-                "SELECT p FROM Post p WHERE p.car.brand = :fBrand", Post.class,
-                Map.of("fBrand", brand)
+                "SELECT p FROM Post p WHERE p.car.name = :fName", Post.class,
+                Map.of("fName", brand)
         );
     }
 }

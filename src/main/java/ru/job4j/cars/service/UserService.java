@@ -12,6 +12,8 @@ public interface UserService {
 
     void deleteById(int id);
 
+    List<User> findAll();
+
     List<User> findAllOrderById();
 
     Optional<User> findById(int userId);

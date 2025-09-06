@@ -2,7 +2,7 @@ package ru.job4j.cars.repository;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
-import ru.job4j.cars.model.History;
+import ru.job4j.cars.model.File;
 
 import java.util.List;
 import java.util.Map;
@@ -10,40 +10,40 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class HbmHistoryRepository implements HistoryRepository {
+public class HbmFileRepository implements FileRepository {
     private final CrudRepository crudRepository;
 
     @Override
-    public History save(History history) {
-        crudRepository.run(session -> session.persist(history));
-        return history;
+    public File create(File file) {
+        crudRepository.run(session -> session.persist(file));
+        return file;
     }
 
     @Override
-    public void update(History history) {
-        crudRepository.run(session -> session.merge(history));
+    public void update(File file) {
+        crudRepository.run(session -> session.merge(file));
     }
 
     @Override
     public void deleteById(int id) {
         crudRepository.run(
-                "DELETE FROM History WHERE id = :fId",
+                "DELETE FROM File WHERE id = :fId",
                 Map.of("fId", id)
         );
     }
 
     @Override
-    public Optional<History> findById(int id) {
+    public Optional<File> findById(int id) {
         return crudRepository.optional(
-                "FROM History WHERE id = :fId", History.class,
+                "FROM File WHERE id = :fId", File.class,
                 Map.of("fId", id)
         );
     }
 
     @Override
-    public List<History> findAll() {
+    public List<File> findAll() {
         return crudRepository.query(
-                "FROM History", History.class
+                "FROM File", File.class
         );
     }
 }
