@@ -10,9 +10,9 @@ public interface EngineService {
 
     void update(Engine engine);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 
-    Optional<Engine> findById(int id);
+    Optional<Engine> findById(Long id);
 
     List<Engine> findAll();
 }

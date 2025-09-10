@@ -1,8 +1,7 @@
-CREATE TABLE price_history
-(
+CREATE TABLE price_history (
    id SERIAL PRIMARY KEY,
-   before BIGINT not null,
-   after BIGINT not null,
+   before BIGINT NOT NULL,
+   after BIGINT NOT NULL,
    created TIMESTAMP WITHOUT TIME ZONE DEFAULT now(),
    post_id INT NOT NULL REFERENCES auto_post(id)
 );

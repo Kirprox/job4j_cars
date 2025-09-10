@@ -9,7 +9,7 @@ import lombok.Data;
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     @ManyToOne()
     @JoinColumn(name = "user_id")

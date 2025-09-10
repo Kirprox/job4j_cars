@@ -10,13 +10,13 @@ public interface UserService {
 
     void update(User user);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 
     List<User> findAll();
 
     List<User> findAllOrderById();
 
-    Optional<User> findById(int userId);
+    Optional<User> findById(Long userId);
 
     List<User> findByLikeLogin(String key);
 

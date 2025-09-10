@@ -12,7 +12,7 @@ import java.util.Set;
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @OneToOne
     @JoinColumn(name = "engine_id")
     private Engine engine;

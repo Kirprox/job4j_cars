@@ -10,9 +10,9 @@ public interface PostService {
 
     void updatePost(Post post);
 
-    void deletePostById(int id);
+    void deletePostById(Long id);
 
-    Optional<Post> findById(int id);
+    Optional<Post> findById(Long id);
 
     List<Post> findAdd();
 

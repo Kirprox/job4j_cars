@@ -24,12 +24,12 @@ public class SimplePostService implements PostService {
     }
 
     @Override
-    public void deletePostById(int id) {
+    public void deletePostById(Long id) {
         postRepository.deleteById(id);
     }
 
     @Override
-    public Optional<Post> findById(int id) {
+    public Optional<Post> findById(Long id) {
         return postRepository.findById(id);
     }
 

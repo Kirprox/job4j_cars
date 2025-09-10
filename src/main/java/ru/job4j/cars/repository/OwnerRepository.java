@@ -10,9 +10,9 @@ public interface OwnerRepository {
 
     void update(Owner owner);
 
-    Optional<Owner> findById(int id);
+    Optional<Owner> findById(Long id);
 
     List<Owner> findAll();
 
-    void deleteById(int id);
+    void deleteById(Long id);
 }

@@ -24,12 +24,12 @@ public class SimpleHistoryService implements HistoryService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         historyRepository.deleteById(id);
     }
 
     @Override
-    public Optional<History> findById(int id) {
+    public Optional<History> findById(Long id) {
         return historyRepository.findById(id);
     }
 

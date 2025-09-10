@@ -10,9 +10,9 @@ public interface CarService {
 
     void update(Car car);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 
-    Optional<Car> findById(int id);
+    Optional<Car> findById(Long id);
 
     List<Car> findAll();
 }

@@ -25,7 +25,7 @@ public class HbmCarRepository implements CarRepository {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         crudRepository.run(
                 "DELETE FROM Car WHERE id = :fId",
                 Map.of("fId", id)
@@ -33,7 +33,7 @@ public class HbmCarRepository implements CarRepository {
     }
 
     @Override
-    public Optional<Car> findById(int id) {
+    public Optional<Car> findById(Long id) {
         return crudRepository.optional(
                 "FROM Car c LEFT JOIN FETCH c.owners WHERE c.id = :fId", Car.class,
                 Map.of("fId", id)

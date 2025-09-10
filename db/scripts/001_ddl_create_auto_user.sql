@@ -1,6 +1,5 @@
-CREATE TABLE auto_user
-(
+CREATE TABLE auto_user (
     id       SERIAL PRIMARY KEY,
-    login    VARCHAR not null,
-    password VARCHAR not null
+    login    VARCHAR NOT NULL,
+    password VARCHAR NOT NULL
 );

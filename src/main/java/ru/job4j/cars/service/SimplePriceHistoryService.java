@@ -24,12 +24,12 @@ public class SimplePriceHistoryService implements PriceHistoryService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         priceHistoryRepository.deleteById(id);
     }
 
     @Override
-    public Optional<PriceHistory> findById(int id) {
+    public Optional<PriceHistory> findById(Long id) {
         return priceHistoryRepository.findById(id);
     }
 

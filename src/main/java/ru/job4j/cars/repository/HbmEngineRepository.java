@@ -25,7 +25,7 @@ public class HbmEngineRepository implements EngineRepository {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         crudRepository.run(
                 "DELETE FROM Engine WHERE id = :fId",
                 Map.of("fId", id)
@@ -33,7 +33,7 @@ public class HbmEngineRepository implements EngineRepository {
     }
 
     @Override
-    public Optional<Engine> findById(int id) {
+    public Optional<Engine> findById(Long id) {
         return crudRepository.optional(
                 "FROM Engine WHERE id = :fId", Engine.class,
                 Map.of("fId", id)

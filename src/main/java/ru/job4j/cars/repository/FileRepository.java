@@ -10,9 +10,9 @@ public interface FileRepository {
 
     void update(File file);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 
-    Optional<File> findById(int id);
+    Optional<File> findById(Long id);
 
     List<File> findAll();
 }

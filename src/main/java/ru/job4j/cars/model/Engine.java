@@ -9,6 +9,6 @@ import lombok.Data;
 public class Engine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
 }

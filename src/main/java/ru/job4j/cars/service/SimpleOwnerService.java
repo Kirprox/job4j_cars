@@ -24,12 +24,12 @@ public class SimpleOwnerService implements OwnerService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         ownerRepository.deleteById(id);
     }
 
     @Override
-    public Optional<Owner> findById(int id) {
+    public Optional<Owner> findById(Long id) {
         return ownerRepository.findById(id);
     }
 

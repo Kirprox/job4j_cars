@@ -25,17 +25,17 @@ public class HbmPriceHistoryRepository implements PriceHistoryRepository {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         crudRepository.run(
-                "delete from PriceHistory where id = :fId",
+                "DELETE FROM PriceHistory WHERE id = :fId",
                 Map.of("fId", id)
         );
     }
 
     @Override
-    public Optional<PriceHistory> findById(int id) {
+    public Optional<PriceHistory> findById(Long id) {
         return crudRepository.optional(
-                "from PriceHistory where id = :fId", PriceHistory.class,
+                "FROM PriceHistory WHERE id = :fId", PriceHistory.class,
                 Map.of("fId", id)
         );
     }
@@ -43,7 +43,7 @@ public class HbmPriceHistoryRepository implements PriceHistoryRepository {
     @Override
     public List<PriceHistory> findAll() {
         return crudRepository.query(
-                "from PriceHistory", PriceHistory.class
+                "FROM PriceHistory", PriceHistory.class
         );
     }
 }

@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class PriceHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     @Column(name = "before")
     private long beforePrice;
     @Column(name = "after")

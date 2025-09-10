@@ -10,9 +10,9 @@ public interface OwnerService {
 
     void update(Owner owner);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 
-    Optional<Owner> findById(int id);
+    Optional<Owner> findById(Long id);
 
     List<Owner> findAll();
 }

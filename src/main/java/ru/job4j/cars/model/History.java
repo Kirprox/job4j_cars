@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private LocalDateTime starAt;
     private LocalDateTime endAt;
 }

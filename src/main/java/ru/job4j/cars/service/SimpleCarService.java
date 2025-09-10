@@ -24,12 +24,12 @@ public class SimpleCarService implements CarService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         carRepository.deleteById(id);
     }
 
     @Override
-    public Optional<Car> findById(int id) {
+    public Optional<Car> findById(Long id) {
         return carRepository.findById(id);
     }
 

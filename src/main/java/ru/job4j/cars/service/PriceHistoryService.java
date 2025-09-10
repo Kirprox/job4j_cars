@@ -10,9 +10,9 @@ public interface PriceHistoryService {
 
     void update(PriceHistory priceHistory);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 
-    Optional<PriceHistory> findById(int id);
+    Optional<PriceHistory> findById(Long id);
 
     List<PriceHistory> findAll();
 }

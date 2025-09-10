@@ -25,7 +25,7 @@ public class HbmOwnerRepository implements OwnerRepository {
     }
 
     @Override
-    public Optional<Owner> findById(int id) {
+    public Optional<Owner> findById(Long id) {
         return crudRepository.optional(
                 "FROM Owner WHERE id = :fId", Owner.class,
                 Map.of("fId", id)
@@ -40,7 +40,7 @@ public class HbmOwnerRepository implements OwnerRepository {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         crudRepository.run(
                 "DELETE FROM Owner WHERE id = :fId",
                 Map.of("fId", id)

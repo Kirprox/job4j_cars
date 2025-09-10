@@ -25,7 +25,7 @@ public class HbmHistoryRepository implements HistoryRepository {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         crudRepository.run(
                 "DELETE FROM History WHERE id = :fId",
                 Map.of("fId", id)
@@ -33,7 +33,7 @@ public class HbmHistoryRepository implements HistoryRepository {
     }
 
     @Override
-    public Optional<History> findById(int id) {
+    public Optional<History> findById(Long id) {
         return crudRepository.optional(
                 "FROM History WHERE id = :fId", History.class,
                 Map.of("fId", id)

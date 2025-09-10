@@ -10,13 +10,13 @@ public interface UserRepository {
 
     void update(User user);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 
     List<User> findAll();
 
     List<User> findAllOrderById();
 
-    Optional<User> findById(int id);
+    Optional<User> findById(Long id);
 
     List<User> findByLikeLogin(String key);
 

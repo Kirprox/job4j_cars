@@ -43,7 +43,7 @@ public class HbmUserRepository implements UserRepository {
      * @param userId ID
      */
     @Override
-    public void deleteById(int userId) {
+    public void deleteById(Long userId) {
         crudRepository.run(
                 "delete from User where id = :fId",
                 Map.of("fId", userId)
@@ -73,7 +73,7 @@ public class HbmUserRepository implements UserRepository {
      * @return пользователь.
      */
     @Override
-    public Optional<User> findById(int userId) {
+    public Optional<User> findById(Long userId) {
         return crudRepository.optional(
                 "from User where id = :fId", User.class,
                 Map.of("fId", userId)

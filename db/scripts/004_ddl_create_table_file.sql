@@ -1,5 +1,5 @@
-create table files (
-    id serial primary key,
-    name varchar not null,
-    path varchar not null unique
+CREATE TABLE files (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    path VARCHAR NOT NULL
 );

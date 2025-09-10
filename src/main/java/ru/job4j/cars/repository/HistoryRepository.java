@@ -10,9 +10,9 @@ public interface HistoryRepository {
 
     void update(History history);
 
-    void deleteById(int id);
+    void deleteById(Long id);
 
-    Optional<History> findById(int id);
+    Optional<History> findById(Long id);
 
     List<History> findAll();
 }

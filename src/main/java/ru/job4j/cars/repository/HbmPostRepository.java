@@ -26,7 +26,7 @@ public class HbmPostRepository implements PostRepository {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         crudRepository.run(
                 "DELETE FROM Post WHERE id = :fId",
                 Map.of("fId", id)
@@ -34,7 +34,7 @@ public class HbmPostRepository implements PostRepository {
     }
 
     @Override
-    public Optional<Post> findById(int id) {
+    public Optional<Post> findById(Long id) {
         return crudRepository.optional(
                 "FROM Post Where id = :fId", Post.class,
                 Map.of("fId", id)

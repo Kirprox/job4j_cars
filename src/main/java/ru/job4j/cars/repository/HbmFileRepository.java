@@ -25,7 +25,7 @@ public class HbmFileRepository implements FileRepository {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         crudRepository.run(
                 "DELETE FROM File WHERE id = :fId",
                 Map.of("fId", id)
@@ -33,7 +33,7 @@ public class HbmFileRepository implements FileRepository {
     }
 
     @Override
-    public Optional<File> findById(int id) {
+    public Optional<File> findById(Long id) {
         return crudRepository.optional(
                 "FROM File WHERE id = :fId", File.class,
                 Map.of("fId", id)

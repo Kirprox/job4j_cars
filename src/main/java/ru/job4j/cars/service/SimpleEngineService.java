@@ -24,12 +24,12 @@ public class SimpleEngineService implements EngineService {
     }
 
     @Override
-    public void deleteById(int id) {
+    public void deleteById(Long id) {
         engineRepository.deleteById(id);
     }
 
     @Override
-    public Optional<Engine> findById(int id) {
+    public Optional<Engine> findById(Long id) {
         return engineRepository.findById(id);
     }
 

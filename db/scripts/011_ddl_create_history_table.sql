@@ -1,5 +1,5 @@
-create table history(
-    id serial primary key,
-    start_at timestamp not null,
-    end_at timestamp not null
+CREATE TABLE history(
+    id SERIAL PRIMARY KEY,
+    start_at TIMESTAMP NOT NULL,
+    end_at TIMESTAMP NOT NULL
 );
