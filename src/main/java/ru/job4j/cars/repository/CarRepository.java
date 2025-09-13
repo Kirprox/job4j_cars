@@ -14,5 +14,7 @@ public interface CarRepository {
 
     Optional<Car> findById(Long id);
 
+    Optional<Car> findByIdWithOwners(Long id);
+
     List<Car> findAll();
 }

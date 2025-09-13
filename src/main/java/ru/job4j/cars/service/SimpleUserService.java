@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class SimpleUserService implements UserRepository {
+public class SimpleUserService implements UserService {
     private final UserRepository userRepository;
 
     @Override
@@ -51,5 +51,10 @@ public class SimpleUserService implements UserRepository {
     @Override
     public Optional<User> findByLogin(String login) {
         return userRepository.findByLogin(login);
+    }
+
+    @Override
+    public Optional<User> findByLoginAndPassword(String login, String password) {
+        return userRepository.findByLoginAndPassword(login, password);
     }
 }

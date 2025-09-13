@@ -22,4 +22,6 @@ public interface UserService {
 
     Optional<User> findByLogin(String login);
 
+    Optional<User> findByLoginAndPassword(String login, String password);
 }
+

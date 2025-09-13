@@ -22,5 +22,6 @@
         <mapping class="ru.job4j.cars.model.History" />
         <mapping class="ru.job4j.cars.model.File" />
         <mapping class="ru.job4j.cars.model.Body" />
+        <mapping class="ru.job4j.cars.model.Price" />
     </session-factory>
 </hibernate-configuration>

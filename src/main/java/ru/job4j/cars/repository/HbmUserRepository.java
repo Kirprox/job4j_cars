@@ -36,7 +36,6 @@ public class HbmUserRepository implements UserRepository {
     }
 
 
-
     /**
      * Удалить пользователя по id.
      *
@@ -105,6 +104,14 @@ public class HbmUserRepository implements UserRepository {
         return crudRepository.optional(
                 "from User where login = :fLogin", User.class,
                 Map.of("fLogin", login)
+        );
+    }
+
+    @Override
+    public Optional<User> findByLoginAndPassword(String login, String password) {
+        return crudRepository.optional(
+                "FROM User where login = :fLogin AND password = :fPassword", User.class,
+                Map.of("fLogin", login, "fPassword", password)
         );
     }
 }

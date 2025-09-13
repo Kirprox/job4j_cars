@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import ru.job4j.cars.model.Post;
 import ru.job4j.cars.repository.PostRepository;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +17,7 @@ public class SimplePostService implements PostService {
 
     @Override
     public Post save(Post post) {
+        post.setCreated(LocalDateTime.now().truncatedTo(ChronoUnit.MINUTES));
         return postRepository.create(post);
     }
 
@@ -34,7 +37,7 @@ public class SimplePostService implements PostService {
     }
 
     @Override
-    public List<Post> findAdd() {
+    public List<Post> findAll() {
         return postRepository.findAll();
     }
 

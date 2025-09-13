@@ -12,9 +12,9 @@
                     <p class="text-danger" th:text="${error}"></p>
                 </div>
                 <div class="mb-3">
-                    <label for="email" class="form-label"><b>Почта</b></label>
-                    <input type="email" class="form-control" id="email"
-                           name="email" placeholder="ivan@mail.ru" required>
+                    <label for="login" class="form-label"><b>Логин</b></label>
+                    <input type="login" class="form-control" id="login"
+                           name="login" placeholder="alex007" required>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label"><b>Пароль</b></label>
@@ -41,6 +41,6 @@
         <div class="col-3"></div>
     </div>
 </div>
-<footer th:include="blocks/footer :: footer"></footer>
+<footer th:include="fragments/footer :: footer"></footer>
 </body>
 </html>

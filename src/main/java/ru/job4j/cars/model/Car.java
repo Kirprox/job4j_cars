@@ -13,14 +13,20 @@ public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "engine_id")
     private Engine engine;
+    @ManyToOne
+    @JoinColumn(name = "body_id")
+    private Body body;
+    @OneToOne
+    @JoinColumn(name = "price_id")
+    private Price price;
     private String name;
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "history_owner", joinColumns = {
             @JoinColumn(name = "car_id")},
             inverseJoinColumns = {
-            @JoinColumn(name = "owner_id")})
+                    @JoinColumn(name = "owner_id")})
     private Set<Owner> owners = new HashSet<>();
 }

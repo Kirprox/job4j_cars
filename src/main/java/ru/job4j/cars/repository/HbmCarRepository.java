@@ -36,8 +36,13 @@ public class HbmCarRepository implements CarRepository {
     public Optional<Car> findById(Long id) {
         return crudRepository.optional(
                 "FROM Car c LEFT JOIN FETCH c.owners WHERE c.id = :fId", Car.class,
-                Map.of("fId", id)
+                Map.of("fId", id) //todo добавить исключения для optional
         );
+    }
+
+    @Override
+    public Optional<Car> findByIdWithOwners(Long id) {
+        return Optional.empty(); //todo сделать метод поиск по айди с добавлением листа владельцев
     }
 
     @Override

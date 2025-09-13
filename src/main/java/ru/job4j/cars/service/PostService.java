@@ -14,7 +14,7 @@ public interface PostService {
 
     Optional<Post> findById(Long id);
 
-    List<Post> findAdd();
+    List<Post> findAll();
 
     List<Post> findByLastDay();
 
