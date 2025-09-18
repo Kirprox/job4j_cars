@@ -1,9 +1,9 @@
 package ru.job4j.cars.service;
 
+import ru.job4j.cars.dto.CarDto;
 import ru.job4j.cars.model.Car;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface CarService {
     Car create(Car car);
@@ -12,7 +12,7 @@ public interface CarService {
 
     void deleteById(Long id);
 
-    Optional<Car> findById(Long id);
+    CarDto findById(Long id);
 
-    List<Car> findAll();
+    List<CarDto> findAll();
 }

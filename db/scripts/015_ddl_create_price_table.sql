@@ -1,0 +1,4 @@
+CREATE TABLE price (
+    id SERIAL PRIMARY KEY,
+    name BIGINT NOT NULL
+);

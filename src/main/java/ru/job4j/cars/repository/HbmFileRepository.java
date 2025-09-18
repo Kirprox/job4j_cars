@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 import ru.job4j.cars.model.File;
 
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -37,13 +36,6 @@ public class HbmFileRepository implements FileRepository {
         return crudRepository.optional(
                 "FROM File WHERE id = :fId", File.class,
                 Map.of("fId", id)
-        );
-    }
-
-    @Override
-    public List<File> findAll() {
-        return crudRepository.query(
-                "FROM File", File.class
         );
     }
 }

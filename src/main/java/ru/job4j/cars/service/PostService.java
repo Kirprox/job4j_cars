@@ -1,5 +1,6 @@
 package ru.job4j.cars.service;
 
+import ru.job4j.cars.dto.PostDto;
 import ru.job4j.cars.model.Post;
 
 import java.util.List;
@@ -12,13 +13,13 @@ public interface PostService {
 
     void deletePostById(Long id);
 
-    Optional<Post> findById(Long id);
+    Optional<PostDto> findById(Long id);
 
-    List<Post> findAdd();
+    List<PostDto> findAll();
 
-    List<Post> findByLastDay();
+    List<PostDto> findByLastDay();
 
-    List<Post> findWithPhoto();
+    List<PostDto> findWithPhoto();
 
-    List<Post> findContainsCar(String brand);
+    List<PostDto> findContainsCar(String brand);
 }

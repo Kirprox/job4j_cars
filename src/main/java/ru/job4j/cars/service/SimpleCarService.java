@@ -2,11 +2,12 @@ package ru.job4j.cars.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.job4j.cars.dto.CarDto;
 import ru.job4j.cars.model.Car;
 import ru.job4j.cars.repository.CarRepository;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -29,12 +30,14 @@ public class SimpleCarService implements CarService {
     }
 
     @Override
-    public Optional<Car> findById(Long id) {
-        return carRepository.findById(id);
+    public CarDto findById(Long id) {
+        return carRepository.findById(id)
+                .map(CarDto::fromEntity).get();
     }
 
     @Override
-    public List<Car> findAll() {
-        return carRepository.findAll();
+    public List<CarDto> findAll() {
+        return carRepository.findAll().stream()
+                .map(CarDto::fromEntity).collect(Collectors.toList());
     }
 }
