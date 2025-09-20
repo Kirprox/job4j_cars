@@ -26,8 +26,8 @@ public class HbmPriceRepository implements PriceRepository {
 
     @Override
     public void deleteById(Long id) {
-        crudRepository.query(
-                "DELETE FROM Price WHERE id = :fId", Price.class,
+        crudRepository.run(
+                "DELETE FROM Price WHERE id = :fId",
                 Map.of("fId", id)
         );
     }

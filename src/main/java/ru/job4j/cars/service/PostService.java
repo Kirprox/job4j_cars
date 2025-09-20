@@ -4,7 +4,6 @@ import ru.job4j.cars.dto.PostDto;
 import ru.job4j.cars.model.Post;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface PostService {
     Post save(Post post);
@@ -13,7 +12,7 @@ public interface PostService {
 
     void deletePostById(Long id);
 
-    Optional<PostDto> findById(Long id);
+    PostDto findById(Long id);
 
     List<PostDto> findAll();
 

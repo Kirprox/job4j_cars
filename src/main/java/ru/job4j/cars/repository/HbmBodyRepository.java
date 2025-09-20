@@ -26,8 +26,8 @@ public class HbmBodyRepository implements BodyRepository {
 
     @Override
     public void deleteById(Long id) {
-        crudRepository.query(
-                "DELETE FROM Body WHERE id = :fId", Body.class,
+        crudRepository.run(
+                "DELETE FROM Body WHERE id = :fId",
                 Map.of("fId", id)
         );
     }

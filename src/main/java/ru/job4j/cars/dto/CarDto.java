@@ -10,7 +10,6 @@ public class CarDto {
     private Long price;
     private String engine;
 
-    //todo написать метод для преобразования кар в дто
     public static CarDto fromEntity(Car car) {
         CarDto dto = new CarDto();
         dto.setName(car.getName());

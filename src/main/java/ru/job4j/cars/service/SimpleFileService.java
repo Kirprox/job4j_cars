@@ -1,8 +1,7 @@
 package ru.job4j.cars.service;
 
-import jakarta.annotation.PostConstruct;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import ru.job4j.cars.dto.FileDto;
 import ru.job4j.cars.model.File;
 import ru.job4j.cars.repository.FileRepository;
@@ -13,15 +12,16 @@ import java.nio.file.Path;
 import java.util.Optional;
 import java.util.UUID;
 
-@AllArgsConstructor
+@Service
 public class SimpleFileService implements FileService {
     private final FileRepository fileRepository;
 
-    @Value("${file.directory}")
     private final String storageDirectory;
 
-    @PostConstruct
-    private void init() {
+    public SimpleFileService(FileRepository fileRepository,
+                             @Value("${file.directory}") String storageDirectory) {
+        this.fileRepository = fileRepository;
+        this.storageDirectory = storageDirectory;
         createStorageDirectory(storageDirectory);
     }
 

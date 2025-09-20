@@ -9,7 +9,6 @@ import ru.job4j.cars.repository.PostRepository;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -33,28 +32,32 @@ public class SimplePostService implements PostService {
     }
 
     @Override
-    public Optional<PostDto> findById(Long id) {
-        //todo дописать методы. преобразовать пост в постдто
-        return Optional.empty();
+    public PostDto findById(Long id) {
+        return postRepository.findById(id)
+                .map(PostDto::fromEntity).get();
     }
 
     @Override
     public List<PostDto> findAll() {
-        return null;
+        return postRepository.findAll().stream()
+                .map(PostDto::fromEntity).toList();
     }
 
     @Override
     public List<PostDto> findByLastDay() {
-        return null;
+        return postRepository.findByLastDay().stream()
+                .map(PostDto::fromEntity).toList();
     }
 
     @Override
     public List<PostDto> findWithPhoto() {
-        return null;
+        return postRepository.findWithPhoto().stream()
+                .map(PostDto::fromEntity).toList();
     }
 
     @Override
     public List<PostDto> findContainsCar(String brand) {
-        return null;
+        return postRepository.findContainsCarBrand(brand).stream()
+                .map(PostDto::fromEntity).toList();
     }
 }

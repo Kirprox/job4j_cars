@@ -7,12 +7,16 @@ import java.time.LocalDateTime;
 
 @Data
 public class PostDto {
+    private Long id;
+    private Long carId;
     private String description;
     private LocalDateTime created;
     private String user;
 
     public static PostDto fromEntity(Post post) {
         PostDto postDto = new PostDto();
+        postDto.setId(post.getId());
+        postDto.setCarId(post.getCar().getId());
         postDto.setDescription(post.getDescription());
         postDto.setCreated(post.getCreated());
         postDto.setUser(post.getUser().getLogin());
