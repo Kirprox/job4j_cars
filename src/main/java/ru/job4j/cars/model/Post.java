@@ -26,10 +26,10 @@ public class Post {
             inverseJoinColumns = {@JoinColumn(name = "user_id")}
     )
     private List<User> participates = new ArrayList<>();
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "car_id")
     private Car car;
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE}, orphanRemoval = true)
     @JoinColumn(name = "file_id")
     private File file;
 }

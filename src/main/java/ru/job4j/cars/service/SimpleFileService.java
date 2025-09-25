@@ -78,9 +78,7 @@ public class SimpleFileService implements FileService {
             return Optional.empty();
         }
         var content = readFileAsBytes(fileOptional.get().getPath());
-        FileDto dto = new FileDto();
-        dto.setName(fileOptional.get().getName());
-        dto.setContent(content);
+        FileDto dto = new FileDto(fileOptional.get().getName(), content);
         return Optional.of(dto);
     }
 

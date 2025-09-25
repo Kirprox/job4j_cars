@@ -14,4 +14,5 @@ public class PostFullViewDto {
     private LocalDateTime created;
     private String user;
     private String description;
+    private Long fileId;
 }

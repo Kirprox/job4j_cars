@@ -19,7 +19,7 @@ public class Car {
     @ManyToOne
     @JoinColumn(name = "body_id")
     private Body body;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "price_id")
     private Price price;
     private String name;

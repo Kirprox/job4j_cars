@@ -34,6 +34,11 @@ public class HbmPostRepository implements PostRepository {
     }
 
     @Override
+    public void delete(Post post) {
+        crudRepository.run(session -> session.remove(post));
+    }
+
+    @Override
     public Optional<Post> findById(Long id) {
         return crudRepository.optional(
                 "FROM Post Where id = :fId", Post.class,

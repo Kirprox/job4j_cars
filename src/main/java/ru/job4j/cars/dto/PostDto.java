@@ -12,6 +12,7 @@ public class PostDto {
     private String description;
     private LocalDateTime created;
     private String user;
+    private Long fileId;
 
     public static PostDto fromEntity(Post post) {
         PostDto postDto = new PostDto();
@@ -20,6 +21,7 @@ public class PostDto {
         postDto.setDescription(post.getDescription());
         postDto.setCreated(post.getCreated());
         postDto.setUser(post.getUser().getLogin());
+        postDto.setFileId(post.getFile().getId());
         return postDto;
     }
 }

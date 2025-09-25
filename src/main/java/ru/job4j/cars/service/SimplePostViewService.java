@@ -28,6 +28,7 @@ public class SimplePostViewService implements PostViewService {
                             .created(postDto.getCreated())
                             .user(postDto.getUser())
                             .description(postDto.getDescription())
+                            .fileId(postDto.getFileId())
                             .build();
                 }).toList();
     }
