@@ -136,8 +136,6 @@ class HbmPostRepositoryTest {
         post2.setCar(car1);
         post.setDescription("usual car");
         post2.setDescription("car");
-        carRepository.create(car);
-        carRepository.create(car1);
         repository.create(post);
         repository.create(post2);
         List<Post> posts = repository.findContainsCarBrand("toyota");

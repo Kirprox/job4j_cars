@@ -2,6 +2,8 @@ package ru.job4j.cars.repository;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
+import ru.job4j.cars.exception.UserActionException;
+import ru.job4j.cars.exception.UserLoginException;
 import ru.job4j.cars.model.User;
 
 import java.util.List;
@@ -21,8 +23,20 @@ public class HbmUserRepository implements UserRepository {
      */
     @Override
     public User create(User user) {
+        if (existsByLogin(user.getLogin())) {
+            throw new UserActionException("Пользователь с таким логином уже существует");
+        }
         crudRepository.run(session -> session.persist(user));
         return user;
+    }
+
+    @Override
+    public boolean existsByLogin(String login) {
+        Long count = crudRepository.optional(
+                "SELECT COUNT(u) FROM User u WHERE u.login = :fLogin", Long.class,
+                Map.of("fLogin", login)
+        ).orElse(0L);
+        return count > 0;
     }
 
     /**
@@ -108,10 +122,13 @@ public class HbmUserRepository implements UserRepository {
     }
 
     @Override
-    public Optional<User> findByLoginAndPassword(String login, String password) {
+    public User findByLoginAndPassword(String login, String password) {
+
         return crudRepository.optional(
                 "FROM User where login = :fLogin AND password = :fPassword", User.class,
                 Map.of("fLogin", login, "fPassword", password)
-        );
+        ).orElseThrow(() -> new UserLoginException("Неверный логин или пароль"));
+
     }
+
 }

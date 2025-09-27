@@ -32,7 +32,7 @@ class HbmUserRepositoryTest {
     }
 
     @Test
-    void create() {
+    void whenAddNewUserThenUserRepHasSameUser() {
         User user = new User();
         user.setLogin("kir");
         repository.create(user);
@@ -41,7 +41,7 @@ class HbmUserRepositoryTest {
     }
 
     @Test
-    void update() {
+    void whenAddNewUserThenUpdateUserThenUserRepHasSameUser() {
         User user = new User();
         user.setLogin("kir");
         repository.create(user);
@@ -52,7 +52,7 @@ class HbmUserRepositoryTest {
     }
 
     @Test
-    void deleteById() {
+    void whenAddNewUserThenDeleteUser() {
         User user = new User();
         user.setLogin("kir");
         repository.create(user);
@@ -62,7 +62,7 @@ class HbmUserRepositoryTest {
     }
 
     @Test
-    void findAll() {
+    void whenAddSomeUsersThenUserRepHasSameUsers() {
         User user = new User();
         user.setLogin("kir");
         User user2 = new User();
@@ -77,7 +77,7 @@ class HbmUserRepositoryTest {
     }
 
     @Test
-    void findAllOrderById() {
+    void whenAddSomeUsersThenUserRepHasSameUsersOrderById() {
         User user = new User();
         user.setLogin("kir");
         User user2 = new User();
@@ -92,7 +92,7 @@ class HbmUserRepositoryTest {
     }
 
     @Test
-    void findByLikeLogin() {
+    void whenAddSomeUsersThenUserRepHasSameUsersFindByLikeLogin() {
         User user = new User();
         user.setLogin("kir");
         User user2 = new User();
@@ -107,7 +107,7 @@ class HbmUserRepositoryTest {
     }
 
     @Test
-    void findByLogin() {
+    void whenAddSomeUsersThenUserRepHasSameUsersFindByLogin() {
         User user = new User();
         user.setLogin("kir");
         User user2 = new User();
