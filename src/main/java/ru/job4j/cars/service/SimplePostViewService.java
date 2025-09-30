@@ -45,7 +45,8 @@ public class SimplePostViewService implements PostViewService {
                 .engine(carDto.getEngine())
                 .created(postDto.getCreated())
                 .user(postDto.getUser())
-                .description(postDto.getDescription()).build();
+                .description(postDto.getDescription())
+                .fileId(postDto.getFileId()).build();
         return result;
     }
 }

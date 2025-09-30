@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+
+<div class="container mt-4">
+    <div class="mb-3 text-end">
+        <a href="/posts/create" class="btn btn-primary">
+            Создать новое объявление
+        </a>
+    </div>
+
+    <div class="list-group">
+        <a th:each="post : ${posts}"
+           th:href="@{/posts/{id}(id=${post.id})}"
+           class="list-group-item list-group-item-action d-flex align-items-center">
+
+            <div class="col-md-4">
+                <img th:src="@{/files/{id}(id=${post.fileId})}"
+                     class="img-fluid rounded-start"
+                     alt="No image">
+            </div>
+
+            <div class="flex-fill">
+                <h5 th:text="${post.name}">Car Name</h5>
+                <p class="mb-1">
+                    <span th:text="'Кузов: ' + ${post.body}">Body</span><br>
+                    <span th:text="'Двигатель: ' + ${post.engine}">Engine</span><br>
+                    <span th:text="'Цена: ' + ${post.price}">Price</span><br>
+                    <span th:text="'Дата подачи объявления: ' + ${#temporals.format(post.created, 'dd.MM.yyyy HH:mm')}">Created</span><br>
+                    <span th:text="'Профиль пользователя: ' + ${post.user}">User</span>
+                </p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>
+

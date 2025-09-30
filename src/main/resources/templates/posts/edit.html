@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container">
+    <form class="mt-3" th:action="@{/posts/update}" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" name="id" th:value="${post.id}"/>
+
+        <div class="mb-3">
+            <label for="name" class="form-label"><b>Название авто</b></label>
+            <input type="text" class="form-control" id="name" name="name"
+                   th:value="${post.name}" placeholder="Например, Audi A8" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="formFile"><b>Фото</b></label>
+            <div class="mb-2">
+                <img th:src="@{/files/{id}(id=${post.fileId})}" alt="Current image" style="max-width: 200px;">
+            </div>
+            <input class="form-control form-control-sm w-100" type="file" id="formFile" name="file">
+            <small class="text-muted">Оставьте поле пустым, чтобы не менять фото</small>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label"><b>Описание</b></label>
+            <textarea class="form-control" id="description" name="description" rows="5"
+                      th:text="${post.description}" placeholder="Опишите автомобиль" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="body"><b>Кузов</b></label>
+            <select class="form-control" id="body" name="bodyId" required>
+                <option th:each="body : ${bodies}"
+                        th:value="${body.id}"
+                        th:text="${body.name}"
+                        th:selected="${body.name == post.body}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="engine"><b>Двигатель</b></label>
+            <select class="form-control" id="engine" name="engineId" required>
+                <option th:each="engine : ${engines}"
+                        th:value="${engine.id}"
+                        th:text="${engine.name}"
+                        th:selected="${engine.name == post.engine}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="price" class="form-label"><b>Цена</b></label>
+            <input type="number" class="form-control" id="price" name="price"
+                   th:value="${post.price}" placeholder="Цена в рублях" required>
+        </div>
+
+        <div class="mb-3 row">
+            <div class="col-6">
+                <a class="btn btn-danger w-100" th:href="@{/posts}">Отмена</a>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-primary w-100" type="submit">Сохранить</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>

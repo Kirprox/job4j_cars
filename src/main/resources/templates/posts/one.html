@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header"></head>
+<body>
+<div th:replace="fragments/navigation :: navigation"></div>
+
+<div class="container mt-4">
+    <div class="card mb-3">
+        <div class="row g-0 align-items-center">
+            <div class="col-md-4">
+                <img th:src="@{/files/{id}(id=${post.fileId})}"
+                     class="img-fluid rounded-start"
+                     alt="No image">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${post.name}">Car Name</h5>
+                    <p class="card-text mb-1">
+                        <span th:text="'Кузов: ' + ${post.body}">Body</span><br>
+                        <span th:text="'Двигатель: ' + ${post.engine}">Engine</span><br>
+                        <span th:text="'Цена: ' + ${post.price}">Price</span><br>
+                        <span th:text="'Дата подачи объявления: ' + ${#temporals.format(post.created, 'dd.MM.yyyy HH:mm')}">Created</span><br>
+                        <span th:text="'Профиль пользователя: ' + ${post.user}">User</span>
+                    </p>
+                    <div class="card-text mb-2">
+                        <h6>Описание:</h6>
+                        <p th:text="${post.description}"
+                           class="mb-0"
+                           style="white-space: pre-wrap;">Описание объявления</p>
+                    </div>
+                    <form th:action="@{/posts/edit/{id}(id=${post.id})}" method="get">
+                        <button type="submit"
+                                class="btn btn-warning"
+                                th:disabled="${user.login != post.user}"
+                                th:text="${user.login == post.user} ? 'Редактировать' : 'Редактировать (нет доступа)'">
+                        </button>
+                    </form>
+                    <form th:action="@{/posts/delete/{id}(id=${post.id})}" method="get"
+                          th:if="${user.login == post.user}">
+                        <button type="submit" class="btn btn-danger mt-2">Удалить объявление</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:include="fragments/footer :: footer"></footer>
+</body>
+</html>

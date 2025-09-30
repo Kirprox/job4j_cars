@@ -48,6 +48,8 @@ public class PostController {
     public String getEditPage(Model model, @PathVariable Long id) {
         PostFullViewDto post = postViewService.getPostForOneView(id);
         model.addAttribute("post", post);
+        model.addAttribute("engines", engineService.findAll());
+        model.addAttribute("bodies", bodyService.findAll());
         return "/posts/edit";
     }
 
