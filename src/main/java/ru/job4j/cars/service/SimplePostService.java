@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.job4j.cars.dto.FileDto;
 import ru.job4j.cars.dto.PostCreateDto;
 import ru.job4j.cars.dto.PostDto;
+import ru.job4j.cars.exception.ActionException;
 import ru.job4j.cars.model.*;
 import ru.job4j.cars.repository.*;
 
@@ -72,7 +73,7 @@ public class SimplePostService implements PostService {
     @Override
     public PostDto findById(Long id) {
         return postRepository.findById(id)
-                .map(PostDto::fromEntity).get();
+                .map(PostDto::fromEntity).orElseThrow(() -> new ActionException("Объявление с id: " + id + "не найдено"));
     }
 
     @Override

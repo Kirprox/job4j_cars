@@ -3,6 +3,7 @@ package ru.job4j.cars.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.job4j.cars.dto.CarDto;
+import ru.job4j.cars.exception.ActionException;
 import ru.job4j.cars.model.Car;
 import ru.job4j.cars.repository.CarRepository;
 
@@ -32,7 +33,7 @@ public class SimpleCarService implements CarService {
     @Override
     public CarDto findById(Long id) {
         return carRepository.findById(id)
-                .map(CarDto::fromEntity).get();
+                .map(CarDto::fromEntity).orElseThrow(() -> new ActionException("Авто с id: " + id + " не найдено"));
     }
 
     @Override
