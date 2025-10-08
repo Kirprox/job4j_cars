@@ -2,6 +2,7 @@ package ru.job4j.cars.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -10,9 +11,11 @@ import java.util.List;
 @Entity
 @Table(name = "auto_post")
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
     private String description;
     private LocalDateTime created;

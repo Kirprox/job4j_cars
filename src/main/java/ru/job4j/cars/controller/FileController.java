@@ -1,5 +1,6 @@
 package ru.job4j.cars.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,12 +11,9 @@ import ru.job4j.cars.service.FileService;
 
 @RestController
 @RequestMapping("/files")
+@AllArgsConstructor
 public class FileController {
     private final FileService fileService;
-
-    public FileController(FileService fileService) {
-        this.fileService = fileService;
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<byte[]> getById(@PathVariable Long id) {
