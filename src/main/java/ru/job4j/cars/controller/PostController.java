@@ -86,5 +86,4 @@ public class PostController {
         model.addAttribute("bodies", bodyService.findAll());
         return "/posts/create";
     }
-
 }

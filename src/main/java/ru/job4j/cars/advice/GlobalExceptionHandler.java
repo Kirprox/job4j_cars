@@ -28,4 +28,10 @@ public class GlobalExceptionHandler {
         return "errors/404";
     }
 
+    @ExceptionHandler(SecurityException.class)
+    public String handleSecurityException(SecurityException e, Model model) {
+        model.addAttribute("message", e.getMessage());
+        return "errors/404";
+    }
+
 }

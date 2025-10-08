@@ -5,6 +5,7 @@ import org.hibernate.cfg.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import ru.job4j.cars.exception.UserLoginException;
 import ru.job4j.cars.model.User;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class HbmUserRepositoryTest {
     private static CrudRepository crudRepository;
@@ -116,5 +118,12 @@ class HbmUserRepositoryTest {
         repository.create(user2);
         User result = repository.findByLogin("kir").get();
         assertThat(result.getLogin()).isEqualTo("kir");
+    }
+
+    @Test
+    void whenUserNotFoundThenThrowsException() {
+        assertThrows(UserLoginException.class, () ->
+                repository.findByLoginAndPassword("wrong", "wrongPass")
+        );
     }
 }

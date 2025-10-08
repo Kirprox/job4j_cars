@@ -13,6 +13,8 @@
 - H2 db 
 - Lombok 
 - Jacoco 
+## Процент покрытия тестами
+![screenshots/tests.png](screenshots/tests.png)
 ## Интерфейс приложения
 - ### Страница регистрации пользователя
   ![](screenshots/страницарегистрации.png)
